@@ -92,6 +92,11 @@ lazy.setup({
 	},
 	{
 		'tomtom/tcomment_vim'
+	},
+	{
+		'ThePrimeagen/harpoon',
+		branch = 'harpoon2',
+		dependencies = { 'nvim-lua/plenary.nvim' }
 	}
 })
 
@@ -218,4 +223,4 @@ require('plugins.which-key')
 
 require('plugins.toggleterm')
 
--- require('plugins.ts-autotag')
+require('plugins.harpoon')
