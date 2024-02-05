@@ -89,6 +89,9 @@ lazy.setup({
 	},
 	{
 		'tpope/vim-surround'
+	},
+	{
+		'tomtom/tcomment_vim'
 	}
 })
 
