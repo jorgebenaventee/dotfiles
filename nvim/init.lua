@@ -14,7 +14,6 @@ if not vim.loop.fs_stat(lazypath) then
 end
 
 
-
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.keymap.set("n", "<leader>cs", ":nohlsearch<cr>", { desc = 'Clear search highlighting' })
@@ -43,7 +42,7 @@ lazy.setup({
 	{ 'L3MON4D3/LuaSnip' },
 	{ 'nvim-tree/nvim-tree.lua' },
 	{ 'nvim-tree/nvim-web-devicons' },
-	{ 'Raimondi/delimitMate' },
+	{ 'cohama/lexima.vim' },
 	{
 		'nvim-telescope/telescope.nvim',
 		dependencies = {
@@ -75,7 +74,21 @@ lazy.setup({
 		'akinsho/toggleterm.nvim'
 	},
 	{
-		'windwp/nvim-ts-autotag'
+		'windwp/nvim-ts-autotag',
+		config = function()
+			require('nvim-ts-autotag').setup()
+			require('nvim-treesitter.configs').setup {
+				autotag = {
+					enable = true,
+				}
+			}
+		end
+	},
+	{
+		'mattn/emmet-vim'
+	},
+	{
+		'tpope/vim-surround'
 	}
 })
 
@@ -198,10 +211,8 @@ require('plugins.nvim-tree')
 
 require('plugins.telescope')
 
-require('plugins.delimitMate')
-
 require('plugins.which-key')
 
 require('plugins.toggleterm')
 
-require('plugins.ts-autotag')
+-- require('plugins.ts-autotag')
