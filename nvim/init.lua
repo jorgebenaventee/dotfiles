@@ -35,8 +35,10 @@ lazy.setup({
 	{ 'VonHeikemen/lsp-zero.nvim',        branch = 'v3.x' },
 	{ 'williamboman/mason.nvim' },
 	{ 'williamboman/mason-lspconfig.nvim' },
-	{ 'nvim-treesitter/nvim-treesitter' },
 	{ 'neovim/nvim-lspconfig' },
+	{
+		"nvim-treesitter/nvim-treesitter",
+	},
 	{ 'hrsh7th/nvim-cmp' },
 	{ 'hrsh7th/cmp-nvim-lsp' },
 	{ 'L3MON4D3/LuaSnip' },
@@ -78,8 +80,8 @@ lazy.setup({
 		config = function()
 			require('nvim-ts-autotag').setup()
 			require('nvim-treesitter.configs').setup {
-				autotag = {
-					enable = true,
+				highlight = {
+					enable = true
 				}
 			}
 		end
@@ -149,6 +151,12 @@ lsp_zero.format_on_save({
 	format_opts = {
 		async = false,
 		timeout_ms = 10000
+	}
+})
+
+vim.filetype.add({
+	extension = {
+		angular = "angular"
 	}
 })
 
