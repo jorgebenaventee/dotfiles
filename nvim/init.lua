@@ -17,13 +17,19 @@ end
 vim.g.mapleader = " "
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true, remap = false })
 vim.keymap.set("n", "<leader>cs", ":nohlsearch<cr>", { desc = 'Clear search highlighting' })
-
+vim.keymap.set("n", "j", "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+vim.keymap.set("n", "k", "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set("i", "<C-h>", "<Left>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-j>", "<Down>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-k>", "<Up>", { noremap = true, silent = true })
 vim.keymap.set("i", "<C-l>", "<Right>", { noremap = true, silent = true })
 
 vim.opt.rtp:prepend(lazypath)
+
+-- Indent with 4 spaces
+
+vim.opt.shiftwidth = 4
+vim.opt.expandtab = true
 
 local lazy = require('lazy')
 
@@ -58,8 +64,8 @@ lazy.setup({
 		event = "InsertEnter",
 		config = function()
 			require('copilot').setup({
-				suggestion = { enabled = false },
-				panel = { enabled = false }
+				suggestion = { enabled = true },
+				panel = { enabled = true }
 			})
 		end
 	},
