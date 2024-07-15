@@ -1,0 +1,11 @@
+shell = "pwsh.exe"
+
+import = [
+	'~/AppData/Roaming/alacritty/themes/alacritty-theme/themes/iterm.toml',
+]
+
+[font]
+normal = { family = "CaskaydiaCove NF" }
+[window]
+opacity = 0.95
+blur = true
